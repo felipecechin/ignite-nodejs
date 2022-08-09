@@ -1,5 +1,7 @@
 import { DataSource } from "typeorm";
 
+import { Category } from "../modules/cars/entities/Category";
+
 export const AppDataSource = new DataSource({
   type: "postgres",
   // ao rodar migration:run no terminal, host precisa ser localhost
@@ -8,7 +10,7 @@ export const AppDataSource = new DataSource({
   username: "docker",
   password: "1234",
   database: "rentx",
-  // entities: [Category, Specification, User],
+  entities: [Category],
   migrations: ["src/database/migrations/*.ts"],
 });
 
