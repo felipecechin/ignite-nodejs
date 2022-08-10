@@ -1,0 +1,2 @@
+sudo docker logs rentx -f //visualizar logs
+sudo docker exec -it rentx /bin/bash //abre terminal no container
