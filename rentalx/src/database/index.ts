@@ -5,7 +5,6 @@ import { Specification } from "../modules/cars/entities/Specification";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
-  // ao rodar migration:run no terminal, host precisa ser localhost
   host: "database_ignite",
   port: 5432,
   username: "docker",
