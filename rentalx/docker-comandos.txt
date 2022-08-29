@@ -1,2 +1,5 @@
 sudo docker logs rentx -f //visualizar logs
 sudo docker exec -it rentx /bin/bash //abre terminal no container
+sudo docker-compose up //levantar containers com base nas imagens descritas em docker-compose.yml (parametro -d roda em background)
+sudo docker start <nomecontainer>
+sudo docker stop <nomecontainer>
