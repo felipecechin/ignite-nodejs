@@ -1,8 +1,7 @@
-import { ICreateCarDTO } from "@modules/cars/dtos/ICreateCardDTO";
 import { Car } from "@modules/cars/infra/typeorm/entities/Car";
-import { usersRoutes } from "@shared/infra/http/routes/users.routes";
-
 import { ICarsRepository } from "../IcarsRepository";
+import { ICreateCarDTO } from "@modules/cars/dtos/ICreateCardDTO";
+import { usersRoutes } from "@shared/infra/http/routes/users.routes";
 
 class CarsRepositoryInMemory implements ICarsRepository {
   cars: Car[] = [];
