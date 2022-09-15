@@ -1,7 +1,7 @@
-import { Car } from "@modules/cars/infra/typeorm/entities/Car";
-import { ICarsRepository } from "../IcarsRepository";
 import { ICreateCarDTO } from "@modules/cars/dtos/ICreateCardDTO";
-import { usersRoutes } from "@shared/infra/http/routes/users.routes";
+import { Car } from "@modules/cars/infra/typeorm/entities/Car";
+
+import { ICarsRepository } from "../IcarsRepository";
 
 class CarsRepositoryInMemory implements ICarsRepository {
   cars: Car[] = [];
@@ -14,6 +14,7 @@ class CarsRepositoryInMemory implements ICarsRepository {
     fine_amount,
     name,
     license_plate,
+    id,
   }: ICreateCarDTO): Promise<Car> {
     const car = new Car();
 
@@ -25,6 +26,7 @@ class CarsRepositoryInMemory implements ICarsRepository {
       fine_amount,
       name,
       license_plate,
+      id,
     });
 
     this.cars.push(car);
