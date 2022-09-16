@@ -9,19 +9,15 @@ import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
-  host: "database_ignite",
+  host: process.env.NODE_ENV === "test" ? "localhost" : "database_ignite",
   port: 5432,
   username: "docker",
   password: "1234",
-  database: "rentx",
+  database: process.env.NODE_ENV === "test" ? "rentx_test" : "rentx",
   entities: [Category, Specification, User, Car, CarImage, Rental],
   migrations: ["src/shared/infra/typeorm/migrations/*.ts"],
 });
 
 export const createConnection = () => {
-  AppDataSource.initialize()
-    .then(async () => {
-      console.log("Initializing the database...");
-    })
-    .catch((err) => console.log(err));
+  return AppDataSource.initialize();
 };
