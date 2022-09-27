@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express";
-import { verify } from "jsonwebtoken";
 
-import { UsersRepository } from "@modules/accounts/infra/typeorm/repositories/UsersRepository";
 import { AppError } from "@shared/errors/AppError";
+import { UsersRepository } from "@modules/accounts/infra/typeorm/repositories/UsersRepository";
+import { verify } from "jsonwebtoken";
 
 interface IPayload {
   sub: string;
@@ -26,7 +26,6 @@ export async function ensureAuthenticated(
       token,
       "bcd040c2a45fcdd9d0c3ef1c0354c82d"
     ) as IPayload;
-    console.log(user_id);
 
     const usersRepository = new UsersRepository();
     const user = await usersRepository.findById(user_id);
