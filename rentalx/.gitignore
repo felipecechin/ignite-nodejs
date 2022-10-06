@@ -3,3 +3,4 @@ tmp
 .vscode
 coverage
 yarn.lock
+dist
