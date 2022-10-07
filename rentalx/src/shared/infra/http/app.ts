@@ -11,6 +11,7 @@ import { AppError } from "@shared/errors/AppError";
 import { createConnection } from "@shared/infra/typeorm";
 
 import swaggerFile from "../../../swagger.json";
+import { rateLimiterMiddleware } from "./middlewares/rateLimiter";
 import { router } from "./routes";
 
 if (process.env.NODE_ENV !== "test") {
@@ -20,6 +21,7 @@ if (process.env.NODE_ENV !== "test") {
 }
 const app = express();
 
+app.use(rateLimiterMiddleware);
 app.use(express.json());
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
